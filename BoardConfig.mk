@@ -125,24 +125,19 @@ EXTENDED_FONT_FOOTPRINT := true
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 
 # Kernel
+TARGET_USE_PREBUILT_KERNEL := true
 BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_PATH)/mkbootimg.mk
-BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01f88000 --tags_offset 0x01d88000
 BOARD_KERNEL_BASE := 0x80078000
-
-# M9 modified
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=31 ehci-hcd.park=3 androidboot.selinux=permissive lpm_levels.sleep_disabled=1 boot_cpus=0-7 androidtouch.htc_event=1 elevator=bfq
-
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=31 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci androidboot.selinux=permissive
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_SEPARATED_DT := true
-BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_KERNEL_TAGS_OFFSET := 0x01d88000
 BOARD_RAMDISK_OFFSET := 0x01f88000
-TARGET_KERNEL_SOURCE := kernel/htc/msm8939
+BOARD_KERNEL_OFFEST := 0x00008000
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_USES_UNCOMPRESSED_KERNEL := true
-TARGET_KERNEL_CONFIG := m8qlul_defconfig
 
 # Libc extensions
 BOARD_PROVIDES_ADDITIONAL_BIONIC_STATIC_LIBS += libc_htc_symbols
