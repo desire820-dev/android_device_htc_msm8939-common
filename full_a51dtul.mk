@@ -15,12 +15,11 @@
 #
 
 # Inherit from those products. Most specific first.
-ifneq ($(M8QLUL_32_BIT),true)
+ifneq ($(A51DTUL_32_BIT),true)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 endif
 
-# Inherit from m8qlul device
-$(call inherit-product, device/htc/m8qlul/device.mk)
+$(call inherit-product, device/htc/a51dtul/device.mk)
 
 # Device identifier. This must come after all inclusions
-PRODUCT_NAME := full_m8qlul
+PRODUCT_NAME := full_a51dtul

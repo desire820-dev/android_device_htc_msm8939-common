@@ -13,18 +13,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# HTC One M8S (htc_m8qlul)
-# Model Ids
-# 0PKV10000 - HTC Europe
 # msm8939 board, msm8916 kernel
 
 BOARD_VENDOR := htc
-DEVICE_PATH := device/htc/m8qlul
+DEVICE_PATH := device/htc/a51dtul
 
 TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
 
 # Assertions
-TARGET_OTA_ASSERT_DEVICE := htc_m8qlul
+TARGET_OTA_ASSERT_DEVICE := htc_a51dtul
 
 # Architecture
 TARGET_ARCH := arm64
@@ -241,4 +238,4 @@ WIFI_DRIVER_FW_PATH_STA := "sta"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Inherit from the proprietary version
--include vendor/htc/m8qlul/BoardConfigVendor.mk
+-include vendor/htc/a51dtul/BoardConfigVendor.mk

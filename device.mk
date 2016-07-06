@@ -18,11 +18,11 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/common/gps/gps_eu_supl.mk)
-$(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)
-$(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
+$(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
+#$(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
 
 # Inherit the vendor files
-$(call inherit-product-if-exists, vendor/htc/m8qlul/m8qlul-vendor.mk)
+$(call inherit-product-if-exists, vendor/htc/a51dtul/a51dtul-vendor.mk)
 
 # System properties
 -include $(LOCAL_PATH)/system_prop.mk
@@ -31,13 +31,13 @@ $(call inherit-product-if-exists, vendor/htc/m8qlul/m8qlul-vendor.mk)
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # Boot animation
-TARGET_SCREEN_HEIGHT := 1920
-TARGET_SCREEN_WIDTH := 1080
+TARGET_SCREEN_HEIGHT := 1280
+TARGET_SCREEN_WIDTH := 720
 
 # Screen density
 # Device uses ultra-high-density artwork where available
-PRODUCT_AAPT_CONFIG := normal hdpi xhdpi xxhdpi
-PRODUCT_AAPT_PREF_CONFIG := xxhdpi
+PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
+PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
 ## Dot View Case
 # TODO!
@@ -291,7 +291,7 @@ PRODUCT_PACKAGES += \
     ueventd.qcom.rc
 
 PRODUCT_PACKAGES += \
-    init.m8qlul.post_boot.sh \
+    init.a51dtul.post_boot.sh \
     init.qcom.bt.bluedroid.sh \
     init.qcom.bt.sh \
     init.qcom.firmware_links.sh \
@@ -349,8 +349,8 @@ PRODUCT_BOOT_JARS += WfdCommon
 endif
 
 # Device naming
-PRODUCT_DEVICE := m8qlul
-PRODUCT_NAME := m8qlul
+PRODUCT_DEVICE := a51dtul
+PRODUCT_NAME := a51dtul
 PRODUCT_BRAND := htc
-PRODUCT_MODEL := HTC One M8s
+PRODUCT_MODEL := HTC Desire 820u
 PRODUCT_MANUFACTURER := HTC

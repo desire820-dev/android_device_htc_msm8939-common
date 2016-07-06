@@ -613,7 +613,7 @@ service qcamerasvr /system/bin/mm-qcamera-daemon
     user camera
     group camera system inet input graphics
 
-service qcom-post-boot /system/bin/sh /system/etc/init.m8qlul.post_boot.sh
+service qcom-post-boot /system/bin/sh /system/etc/init.a51dtul.post_boot.sh
     class late_start
     user root
     disabled
