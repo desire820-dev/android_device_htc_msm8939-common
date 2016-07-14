@@ -149,7 +149,7 @@ TARGET_PROVIDES_LIBLIGHT := true
 MALLOC_IMPL := dlmalloc
 
 # NFC
-BOARD_NFC_CHIPSET := pn547
+# BOARD_NFC_CHIPSET := pn547
 
 # Offmode Charging
 BOARD_CHARGING_MODE_BOOTING_LPM := /sys/htc_lpm/lpm_mode
