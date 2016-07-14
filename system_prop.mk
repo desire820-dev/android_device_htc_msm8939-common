@@ -24,7 +24,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.hwc.mdpcomp.enable=true \
     ro.opengles.version=196608 \
-    ro.sf.lcd_density=420
+    ro.sf.lcd_density=320
 
 # GPS
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -96,7 +96,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.composition.type=gpu \
-    debug.enable.sglscale=1
+    ro.hwui.renderer.disable_opaque=true 
 
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
