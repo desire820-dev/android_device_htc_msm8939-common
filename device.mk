@@ -293,10 +293,6 @@ PRODUCT_PACKAGES += \
     init.qcom.wcnss_wlan.sh \
     init.qcom.usb.htc.rc
 
-# Recovery
-PRODUCT_PACKAGES += \
-    librecovery_updater_cm
-
 # Sensors
 PRODUCT_PACKAGES += \
     sensorservice
