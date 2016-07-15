@@ -14,6 +14,8 @@
 # limitations under the License.
 #
 LOCAL_PATH := device/htc/a51dtul/kernel
+LOCAL_MODULES_PATH := device/htc/a51dtul/kernel/include/modules
+KERNEL_MODULES_OUT := $(TARGET_OUT)/lib/modules
 
 ifeq ($(TARGET_USE_PREBUILT_KERNEL), true)
 
@@ -27,6 +29,11 @@ $(shell rm -rf $(OUT)/obj/KERNEL_OBJ; \
 # copy the prebuilt kernel and dt.img
 $(shell cp $(TARGET_PREBUILT_KERNEL) $(OUT)/kernel)
 $(shell cp $(TARGET_PREBUILT_DT_IMAGE) $(OUT)/dt.img)
+
+# copy  wlan and fmradio modules
+$(shell cp $(LOCAL_MODULES_PATH)/radio-iris-transport.ko $(KERNEL_MODULES_OUT)/radio-iris-transport.ko)
+$(shell cp $(LOCAL_MODULES_PATH)/texfat.ko $(KERNEL_MODULES_OUT)/texfat.ko)
+$(shell cp $(LOCAL_MODULES_PATH)/pronto/pronto_wlan.ko $(KERNEL_MODULES_OUT)/pronto/pronto_wlan.ko)
 
 # hack for twrp
 TARGET_CUSTOM_KERNEL_HEADERS := $(OUT)/obj/KERNEL_OBJ/usr/include
