@@ -30,6 +30,12 @@ $(shell rm -rf $(OUT)/obj/KERNEL_OBJ; \
 $(shell cp $(TARGET_PREBUILT_KERNEL) $(OUT)/kernel)
 $(shell cp $(TARGET_PREBUILT_DT_IMAGE) $(OUT)/dt.img)
 
+
+# Create a link for the wlan modules
+$(shell mkdir -p $(TARGET_OUT)/lib/modules/pronto; \
+        ln -sf /system/lib/modules/pronto/pronto_wlan.ko \
+               $(TARGET_OUT)/lib/modules/wlan.ko)
+
 # copy  wlan and fmradio modules
 $(shell cp $(LOCAL_MODULES_PATH)/radio-iris-transport.ko $(KERNEL_MODULES_OUT)/radio-iris-transport.ko)
 $(shell cp $(LOCAL_MODULES_PATH)/texfat.ko $(KERNEL_MODULES_OUT)/texfat.ko)
