@@ -294,8 +294,8 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.htc.rc
 
 # Sensors
-#PRODUCT_PACKAGES += \
-#    sensorservice
+PRODUCT_PACKAGES += \
+    sensorservice
 
 PRODUCT_PACKAGES += \
     libshim_sensor

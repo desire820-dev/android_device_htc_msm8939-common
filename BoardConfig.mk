@@ -85,7 +85,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.maxopen=4
 
 # Camera
-# TARGET_SPECIFIC_CAMERA_PARAMETER_LIBRARY := libcamera_parameters_ext
+TARGET_SPECIFIC_CAMERA_PARAMETER_LIBRARY := libcamera_parameters_ext
 USE_DEVICE_SPECIFIC_CAMERA := true
 COMMON_GLOBAL_CFLAGS += -DPROPERTY_PERMS_APPEND='{"htc.camera.sensor.", AID_CAMERA, 0}, {"camera.4k2k.", AID_MEDIA, 0},'
 
@@ -179,6 +179,31 @@ TARGET_SYSTEM_PROP += \
 # Qualcomm support
 BOARD_USES_QC_TIME_SERVICES := true
 BOARD_USES_QCOM_HARDWARE := true
+
+# RIL
+BOARD_PROVIDES_LIBRIL := true
+SIM_COUNT := 2
+TARGET_RIL_VARIANT := caf
+
+# SELinux
+include device/qcom/sepolicy/sepolicy.mk
+
+BOARD_SEPOLICY_DIRS += \
+    $(DEVICE_PATH)/sepolicy
+
+BOARD_SEPOLICY_UNION += \
+    bluetooth_loader.te \
+    device.te \
+    file.te \
+    file_contexts \
+    healthd.te \
+    property_contexts \
+    qseecomd.te \
+    surfaceflinger.te \
+    system.te \
+    system_app.te \
+    system_server.te \
+    wcnss_service.te
 
 # TWRP Rec
 #RECOVERY_VARIANT=twrp
