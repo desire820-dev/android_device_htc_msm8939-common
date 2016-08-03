@@ -181,9 +181,9 @@ BOARD_USES_QC_TIME_SERVICES := true
 BOARD_USES_QCOM_HARDWARE := true
 
 # RIL
-BOARD_PROVIDES_LIBRIL := true
-SIM_COUNT := 2
-TARGET_RIL_VARIANT := caf
+# BOARD_PROVIDES_LIBRIL := true
+# SIM_COUNT := 2
+# TARGET_RIL_VARIANT := caf
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
