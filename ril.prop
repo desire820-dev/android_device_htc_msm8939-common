@@ -10,6 +10,8 @@ ro.ril.enable.pre_r8fd=1
 ro.ril.enable.r8fd=1
 ro.ril.enable.sdr=1
 ro.ril.fast.dormancy.rule=1
+# For modem DPM1.0
+persist.data.target=dpm1
 ro.ril.fd.pre_r8_tout.scr_off=2
 ro.ril.fd.pre_r8_tout.scr_on=3
 ro.ril.fd.r8_tout.scr_off=2
