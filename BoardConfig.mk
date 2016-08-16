@@ -113,11 +113,11 @@ BOARD_HARDWARE_CLASS := \
     $(DEVICE_PATH)/cmhw
 
 # Dexopt
-ifeq ($(HOST_OS),linux)
-  ifeq ($(WITH_DEXPREOPT),)
-    WITH_DEXPREOPT := true
-  endif
-endif
+# ifeq ($(HOST_OS),linux)
+#   ifeq ($(WITH_DEXPREOPT),)
+#     WITH_DEXPREOPT := true
+#   endif
+# endif
 
 # Fonts
 EXTENDED_FONT_FOOTPRINT := true
