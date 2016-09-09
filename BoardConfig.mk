@@ -112,12 +112,12 @@ TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
 BOARD_HARDWARE_CLASS := \
     $(DEVICE_PATH)/cmhw
 
-# Dexopt
-ifeq ($(HOST_OS),linux)
-  ifeq ($(WITH_DEXPREOPT),)
-    WITH_DEXPREOPT := true
-  endif
-endif
+## Dexopt
+#ifeq ($(HOST_OS),linux)
+#  ifeq ($(WITH_DEXPREOPT),)
+#    WITH_DEXPREOPT := true
+#  endif
+#endif
 
 # Fonts
 EXTENDED_FONT_FOOTPRINT := true
