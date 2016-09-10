@@ -90,8 +90,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.qualcomm.bt.hci_transport=smd
 
 # Dexopt - limit to 4 cores
-#PRODUCT_PROPERTY_OVERRIDES += \
-#    ro.sys.fw.dex2oat_thread_count=2
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.sys.fw.dex2oat_thread_count=2
 
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
