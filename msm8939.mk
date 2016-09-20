@@ -120,7 +120,8 @@ PRODUCT_PACKAGES += \
 
 # Connectivity Engine Support
 PRODUCT_PACKAGES += \
-    libcnefeatureconfig
+    libcnefeatureconfig \
+    librmnetctl
 
 # Display
 PRODUCT_PACKAGES += \
@@ -295,6 +296,14 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     libshim_sensor
+
+# SSL Compat
+PRODUCT_PACKAGES += \
+    libboringssl-compat
+
+# Stlport
+PRODUCT_PACKAGES += \
+    libstlport
 
 # Thermal
 PRODUCT_COPY_FILES += \
