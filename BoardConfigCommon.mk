@@ -169,24 +169,10 @@ BOARD_USES_QCOM_HARDWARE := true
 # TARGET_RIL_VARIANT := caf
 
 # SELinux
-include device/qcom/sepolicy/sepolicy.mk
+#include device/qcom/sepolicy/sepolicy.mk
 
-BOARD_SEPOLICY_DIRS += \
-    $(COMMON_PATH)/sepolicy
-
-BOARD_SEPOLICY_UNION += \
-    bluetooth_loader.te \
-    device.te \
-    file.te \
-    file_contexts \
-    healthd.te \
-    property_contexts \
-    qseecomd.te \
-    surfaceflinger.te \
-    system.te \
-    system_app.te \
-    system_server.te \
-    wcnss_service.te
+#BOARD_SEPOLICY_DIRS += \
+#    $(COMMON_PATH)/sepolicy
 
 # TWRP Rec
 #RECOVERY_VARIANT=twrp
