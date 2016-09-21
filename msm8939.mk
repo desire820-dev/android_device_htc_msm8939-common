@@ -239,12 +239,7 @@ PRODUCT_PACKAGES += \
     libOmxSwVencHevc \
     libOmxVidcCommon \
     libOmxSwVencMpeg4 \
-    libstagefrighthw \
-    libdashplayer \
-    qcmediaplayer
-
-PRODUCT_BOOT_JARS += \
-    qcmediaplayer
+    libstagefrighthw
 
 # For userdebug builds
 ADDITIONAL_DEFAULT_PROPERTIES += \
