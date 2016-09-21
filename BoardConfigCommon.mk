@@ -107,9 +107,6 @@ BOARD_EGL_CFG := $(COMMON_PATH)/configs/egl.cfg
 USE_OPENGL_RENDERER := true
 TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
 
-BOARD_HARDWARE_CLASS := \
-    $(COMMON_PATH)/cmhw
-
 # Dexopt
 ifeq ($(HOST_OS),linux)
   ifeq ($(WITH_DEXPREOPT),)
