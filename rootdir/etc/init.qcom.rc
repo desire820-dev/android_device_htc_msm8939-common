@@ -51,7 +51,7 @@ on early-init
 
 on init
     #
-    export LD_SHIM_LIBS "/system/lib64/libsensorservice.so|libshim_sensor.so:/system/vendor/lib64/egl/libEGL_adreno.so|libboringssl-compat.so:/system/vendor/lib64/egl/libGLESv1_CM_adreno.so|libboringssl-compat.so:/system/vendor/lib64/egl/libGLESv2_adreno.so|libboringssl-compat.so"
+    export LD_SHIM_LIBS "/system/lib64/libsensorservice.so|libshim_sensor.so:/system/vendor/lib64/egl/libEGL_adreno.so|libboringssl-compat.so:/system/vendor/lib64/egl/libGLESv1_CM_adreno.so|libboringssl-compat.so:/system/vendor/lib64/egl/libGLESv2_adreno.so|libboringssl-compat.so:/system/lib/liblog.so|/system/lib/liblog_htc.so:/system/lib64/liblog.so|/system/lib64/liblog_htc.so"
     # See storage config details at http://source.android.com/tech/storage/
     mkdir /mnt/shell/emulated 0700 shell shell
     mkdir /storage/emulated 0555 root root
