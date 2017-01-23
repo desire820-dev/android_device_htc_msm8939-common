@@ -70,9 +70,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.isUsbOtgEnabled=true
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.isa.arm64.features=div
-
 # ActivityManager optimizations
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.max_starting_bg=4

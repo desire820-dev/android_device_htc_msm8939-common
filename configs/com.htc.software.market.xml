@@ -19,11 +19,11 @@
      Android Market filter -->
 <permissions>
     <feature name="com.htc.software.HTC" />
-    <feature name="com.htc.software.Sense6.0" />
-    <feature name="com.htc.software.M8WL" />
-    <feature name="com.htc.software.Verizon" />
-    <feature name="com.htc.software.WWE" />
-    <feature name="com.htc.software.PlayGroup1" />
+    <feature name="com.htc.software.Sense7.0" />
     <feature name="com.htc.software.hdk" />
     <feature name="com.htc.software.hdk2" />
+    <feature name="com.htc.software.hdk3" />
+    <feature name="com.htc.software.HIMAWL" />
+    <feature name="com.htc.software.HIMAWHL" />
+    <feature name="com.htc.software.IHSense" />
 </permissions>

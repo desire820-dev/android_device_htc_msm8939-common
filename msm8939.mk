@@ -35,10 +35,6 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
-## Dot View Case
-# TODO!
-#PRODUCT_PACKAGES += Dotcase
-
 # Permissions
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/com.htc.software.market.xml:system/etc/permissions/com.htc.software.market.xml \
@@ -74,6 +70,7 @@ PRODUCT_PACKAGES += \
     audiod \
     audio.a2dp.default \
     audio.primary.msm8916 \
+    audio_amplifier.msm8916 \
     audio.r_submix.default \
     audio.usb.default \
     libaudio-resampler \
@@ -151,6 +148,10 @@ PRODUCT_PACKAGES += \
     libqcomfm_jni \
     qcom.fmradio
 
+# Dot View Case
+PRODUCT_PACKAGES += \
+    Dotcase
+
 # SIM stuff existent on stock
 PRODUCT_PACKAGES += \
     requestsync \
@@ -182,7 +183,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/idc/projector_input.idc:system/usr/idc/projector_input.idc \
     $(LOCAL_PATH)/configs/idc/hsml_touchscreen.idc:system/usr/idc/hsml_touchscreen.idc \
-    $(LOCAL_PATH)/configs/idc/synaptics-rmi-touchscreen.idc:system/usr/idc/synaptics-rmi-touchscreen.idc
+    $(LOCAL_PATH)/configs/idc/himax-touchscreen.idc:system/usr/idc/himax-touchscreen.idc
 
 # IPv6 tethering
 PRODUCT_PACKAGES += \
@@ -193,8 +194,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/keylayout/device-keypad.kl:system/usr/keylayout/device-keypad.kl \
     $(LOCAL_PATH)/configs/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
-    $(LOCAL_PATH)/configs/keylayout/m1120.kl:system/usr/keylayout/m1120.kl \
-    $(LOCAL_PATH)/configs/keylayout/synaptics-rmi-touchscreen.kl:system/usr/keylayout/synaptics-rmi-touchscreen.kl \
+    $(LOCAL_PATH)/configs/keylayout/AK8789_HALL_SENSOR.kl:system/usr/keylayout/AK8789_HALL_SENSOR.kl \
+    $(LOCAL_PATH)/configs/keylayout/himax-touchscreen.kl:system/usr/keylayout/himax-touchscreen.kl \
     $(LOCAL_PATH)/configs/keylayout/projector-Keypad.kl:system/usr/keylayout/projector-Keypad.kl
 
 # Keystore
@@ -208,8 +209,8 @@ PRODUCT_PACKAGES += \
 # Media config
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media/media_codecs.xml:system/etc/media_codecs.xml \
-    $(LOCAL_PATH)/configs/media/media_codecs_sw_vendor.xml:system/etc/media_codecs_sw_vendor.xml \
-    $(LOCAL_PATH)/configs/media/media_profiles_htc.xml:system/etc/media_profiles.xml
+    $(LOCAL_PATH)/configs/media/media_codecs_performance.xml:system/etc/media_codecs_performance.xml \
+    $(LOCAL_PATH)/configs/media/media_profiles.xml:system/etc/media_profiles.xml
 
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
@@ -231,18 +232,14 @@ PRODUCT_PACKAGES += \
 # OMX
 PRODUCT_PACKAGES += \
     libc2dcolorconvert \
-    libdivxdrmdecrypt \
-    libOmxCore \
-    libOmxVdec \
-    libOmxVenc \
     libOmxAacEnc \
-    libOmxAmrEnc \ \
+    libOmxAmrEnc \
+    libOmxCore \
     libOmxEvrcEnc \
-    libOmxVdecHevc \
     libOmxQcelp13Enc \
     libOmxSwVencHevc \
-    libOmxVidcCommon \
-    libOmxSwVencMpeg4 \
+    libOmxVdec \
+    libOmxVenc \
     libstagefrighthw
 
 # For userdebug builds
@@ -268,37 +265,15 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fstab.qcom \
     fstab.swap \
+    init.htc.usb.rc \
+    init.power.rc \
+    init.project.rc \
     init.qcom.rc \
-    init.qcom.usb.rc \
-    init.qcom.usb.htc.rc \
-    init.extras.rc \
-    init.sensors.rc \
-    init.htc.power.rc \
     ueventd.qcom.rc
 
 PRODUCT_PACKAGES += \
-    init.device.post_boot.sh \
-    init.qcom.bt.bluedroid.sh \
     init.qcom.bt.sh \
-    init.qcom.firmware_links.sh \
-    init.qcom.fm.sh \
-    init.qcom.rootagent.sh \
-    init.qcom.sh \
-    init.qcom.uicc.sh \
-    init.qcom.usb.sh \
-    init.qcom.wcnss_wlan.sh \
-    init.qcom.usb.htc.rc
-
-# Sensors
-PRODUCT_PACKAGES += \
-    sensorservice
-
-PRODUCT_PACKAGES += \
-    libshim_sensor
-
-# SSL Compat
-PRODUCT_PACKAGES += \
-    libboringssl-compat
+    init.qcom.sh
 
 # Stlport
 PRODUCT_PACKAGES += \
@@ -336,7 +311,3 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/wifi/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini \
     $(LOCAL_PATH)/configs/wifi/WCNSS_qcom_wlan_nv.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
 
-# WiFi Display
-ifneq ($(QCPATH),)
-PRODUCT_BOOT_JARS += WfdCommon
-endif
