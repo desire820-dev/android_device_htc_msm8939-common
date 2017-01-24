@@ -1,4 +1,4 @@
-#MFG A51(8939)  20140912_KK    LOB=AFELOOPBACK  PLY=PLAY  REC=Record  VLB = voice loopback PCM=PCM LOOPBACK
+#MFG M8QL(8939)  20141120_KK    LOB=AFELOOPBACK  PLY=PLAY  REC=Record  VLB = voice loopback PCM=PCM LOOPBACK
 
 #START_LOB_00  //main-mic to receiver MIC Analog 24dB Digital 8dB RCV Analog 6dB Digital N1dB
 DEC1 MUX:0:ADC1
@@ -374,10 +374,10 @@ DEC1 Volume:1:84
 DEC1 MUX:0:ZERO
 #END
 
-#START_PLY_00  //receiver Analog 6dB Digital 2dB
+#START_PLY_00  //receiver Analog 6dB Digital 1dB
 MI2S_RX Channels:0:One
 RX1 MIX1 INP1:0:RX1
-RX1 Digital Volume:1:86
+RX1 Digital Volume:1:85
 EAR PA Gain:0:POS_6_DB
 RDAC2 MUX:0:RX1
 EAR_S:0:Switch
@@ -400,13 +400,14 @@ ACDB:7:0
 QUAT_MI2S_RX Audio Mixer MultiMedia1:1:0
 #END
 
-#START_PLY_02  //headset Analog N4.5dB Digital 12dB
+#START_PLY_02  //headset Analog 0dB Digital 6dB
 MI2S_RX Channels:0:Two
 RX1 MIX1 INP1:0:RX1
 RX2 MIX1 INP1:0:RX2
 RDAC2 MUX:0:RX2
-RX1 Digital Volume:1:96
-RX2 Digital Volume:1:96
+RX1 Digital Volume:1:90
+RX2 Digital Volume:1:90
+EAR PA Gain:0:POS_6_DB
 HPHL:0:Switch
 HPHR:0:Switch
 HS AMP EN Switch:1:1
@@ -416,6 +417,7 @@ PRI_MI2S_RX Audio Mixer MultiMedia1:1:0
 HS AMP EN Switch:1:0
 HPHL:0:ZERO
 HPHR:0:ZERO
+EAR PA Gain:0:POS_6_DB
 RX2 Digital Volume:1:84
 RX1 Digital Volume:1:84
 RDAC2 MUX:0:ZERO
@@ -424,9 +426,9 @@ RX1 MIX1 INP1:0:ZERO
 MI2S_RX Channels:0:Two
 #END
 
-#START_REC_00  //main-mic Analog 24dB Digital 8dB
+#START_REC_00  //main-mic Analog 24dB Digital 4dB
 DEC1 MUX:0:ADC1
-DEC1 Volume:1:92
+DEC1 Volume:1:88
 ADC1 Gain:0:G_24_DB
 IIR1 INP1 Volume:1:84
 IIR1 INP1 MUX:0:DEC1
@@ -440,9 +442,9 @@ DEC1 Volume:1:84
 DEC1 MUX:0:ZERO
 #END
 
-#START_REC_01  //main-mic Analog 24dB Digital 8dB
+#START_REC_01  //main-mic Analog 24dB Digital 4dB
 DEC1 MUX:0:ADC1
-DEC1 Volume:1:92
+DEC1 Volume:1:88
 ADC1 Gain:0:G_24_DB
 IIR1 INP1 Volume:1:84
 IIR1 INP1 MUX:0:DEC1
@@ -526,13 +528,14 @@ ADC2 MUX:0:ZERO
 DEC1 MUX:0:ZERO
 #END
 
-#START_VLB_02  //headset-mic to headset MIC Analog 24dB Digital 8dB HPH Analog N4.5dB Digital 6dB
+#START_VLB_02  //headset-mic to headset MIC Analog 24dB Digital 8dB HPH Analog 0dB Digital 6dB
 MI2S_RX Channels:0:Two
 RX1 MIX1 INP1:0:RX1
 RX2 MIX1 INP1:0:RX2
 RDAC2 MUX:0:RX2
-RX1 Digital Volume:1:96
-RX2 Digital Volume:1:96
+RX1 Digital Volume:1:90
+RX2 Digital Volume:1:90
+EAR PA Gain:0:POS_6_DB
 HPHL:0:Switch
 HPHR:0:Switch
 HS AMP EN Switch:1:1
@@ -556,6 +559,7 @@ PRI_MI2S_RX_Voice Mixer CSVoice:1:0
 HS AMP EN Switch:1:0
 HPHL:0:ZERO
 HPHR:0:ZERO
+EAR PA Gain:0:POS_6_DB
 RX2 Digital Volume:1:84
 RX1 Digital Volume:1:84
 RDAC2 MUX:0:ZERO

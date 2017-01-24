@@ -162,18 +162,20 @@ on fs
     mkdir /firmware/radio 0771 system system
     wait /dev/block/bootdevice/by-name/radio
     mount vfat /dev/block/bootdevice/by-name/radio /firmware/radio ro shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337
-    exec /system/bin/sh /init.qcom.firmware_links.sh /firmware/radio /firmware/image "modem* mba*"
+
+#Don't need
+#    exec /system/bin/sh /init.qcom.firmware_links.sh /firmware/radio /firmware/image "modem* mba*"
 
     # Mount wcnss image and link to /firmware/image
     mkdir /firmware/wcnss 0771 system system
     wait /dev/block/bootdevice/by-name/wcnss
     mount vfat /dev/block/bootdevice/by-name/wcnss /firmware/wcnss ro shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337
-    exec /system/bin/sh /init.qcom.firmware_links.sh /firmware/wcnss /firmware/image "wcnss*"
+#    exec /system/bin/sh /init.qcom.firmware_links.sh /firmware/wcnss /firmware/image "wcnss*"
     #using script to load wcnss fw and let it execute in background
-    exec /system/bin/sh /init.qcom.wcnss_wlan.sh
+#    exec /system/bin/sh /init.qcom.wcnss_wlan.sh
 
     # QSEE secure application : keymaster
-    exec /system/bin/sh /init.qcom.firmware_links.sh /system/vendor/firmware /vendor/firmware "keymaster.*"
+#    exec /system/bin/sh /init.qcom.firmware_links.sh /system/vendor/firmware /vendor/firmware "keymaster.*"
 
     # Link vendor/lib by QCT original design
     symlink /system/vendor/lib64 /vendor/lib64
@@ -224,17 +226,6 @@ on property:persist.radio.multisim.config=dsds
     stop ril-daemon
     start ril-daemon
     start ril-daemon2
-
-on property:persist.radio.multisim.config=dsda
-    stop ril-daemon
-    start ril-daemon
-    start ril-daemon2
-
-on property:persist.radio.multisim.config=tsts
-    stop ril-daemon
-    start ril-daemon
-    start ril-daemon2
-    start ril-daemon3
 
 service qrngd /system/bin/qrngd -f
    class main
