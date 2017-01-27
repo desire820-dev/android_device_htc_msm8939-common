@@ -101,7 +101,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ril.ecclist=112,911,113,114,115,118,000,08,110,999,119 \
     ril.subscription.types=NV,RUIM \
     rild.libargs=-d/dev/smd0 \
-    rild.libpath=/vendor/lib64/libril-qc-qmi-1.so \
+    rild.libpath=/system/lib64/libhtc_rilhook.so \
     ro.baseband.arch=msm \
     ro.telephony.default_network=9
 
@@ -112,10 +112,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 #Storage
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.fuse_sdcard=true
-
-# Persistent Data Block service
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.frp.pst=/dev/block/bootdevice/by-name/frp
 
 # Additionals, yes, more, from yours truly
 PRODUCT_PROPERTY_OVERRIDES += \

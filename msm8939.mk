@@ -108,7 +108,8 @@ PRODUCT_PACKAGES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    libmm-qcamera
+    libmm-qcamera \
+    Snap
 
 # Charger
 PRODUCT_PACKAGES += \
@@ -147,10 +148,6 @@ PRODUCT_PACKAGES += \
     FMRecord \
     libqcomfm_jni \
     qcom.fmradio
-
-# Dot View Case
-PRODUCT_PACKAGES += \
-    Dotcase
 
 # SIM stuff existent on stock
 PRODUCT_PACKAGES += \
@@ -232,15 +229,19 @@ PRODUCT_PACKAGES += \
 # OMX
 PRODUCT_PACKAGES += \
     libc2dcolorconvert \
-    libOmxAacEnc \
-    libOmxAmrEnc \
+    libdivxdrmdecrypt \
     libOmxCore \
-    libOmxEvrcEnc \
-    libOmxQcelp13Enc \
-    libOmxSwVencHevc \
     libOmxVdec \
     libOmxVenc \
-    libstagefrighthw
+    libOmxAacEnc \
+    libOmxAmrEnc \
+    libOmxEvrcEnc \
+    libOmxVdecHevc \
+    libOmxQcelp13Enc \
+    libOmxSwVencHevc \
+    libOmxVidcCommon \
+    libOmxSwVencMpeg4 \
+    libstagefrighthw \
 
 # For userdebug builds
 ADDITIONAL_DEFAULT_PROPERTIES += \

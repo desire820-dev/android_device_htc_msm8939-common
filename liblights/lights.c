@@ -284,7 +284,7 @@ struct hw_module_t HAL_MODULE_INFO_SYM = {
 	.version_major = 1,
 	.version_minor = 0,
 	.id = LIGHTS_HARDWARE_MODULE_ID,
-	.name = "M8QL Lights module",
+	.name = "Lights module",
 	.author = "The CyanogenMod project",
 	.methods = &lights_module_methods,
 };
