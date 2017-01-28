@@ -30,20 +30,6 @@ include $(call all-makefiles-under,$(LOCAL_PATH))
 
 include $(CLEAR_VARS)
 
-ADSP_IMAGES := \
-    adsp.b00 adsp.b01 adsp.b02 adsp.b03 adsp.b04 adsp.b05 adsp.b06 adsp.b07 \
-    adsp.b08 adsp.b09 adsp.b10 adsp.b11 adsp.b12 adsp.b13 adsp.b14 adsp.b15 \
-    adsp.mdt adpver.cfg
-
-ADSP_SYMLINKS := $(addprefix $(TARGET_ROOT_OUT)/firmware/image/,$(notdir $(ADSP_IMAGES)))
-$(ADSP_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
-	@echo "ADSP firmware link: $@"
-	@mkdir -p $(dir $@)
-	@rm -rf $@
-	$(hide) ln -sf /firmware/adsp/$(notdir $@) $@
-
-ALL_DEFAULT_INSTALLED_MODULES += $(ADSP_SYMLINKS)
-
 KEYMASTER_IMAGES := \
     keymaste.b00 keymaste.b01 keymaste.b02 keymaste.b03 keymaste.mdt
 
@@ -57,41 +43,29 @@ $(KEYMASTER_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 ALL_DEFAULT_INSTALLED_MODULES += $(KEYMASTER_SYMLINKS)
 
 MBA_IMAGES := \
-    mba.b00 mba.b01 mba.b02 mba.b03 mba.b04 mba.b05 mba.mbn mba.mdt
+    mba.b00 mba.b01 mba.b02 mba.b03 mba.mbn mba.mdt mdata.cfg
 
 MBA_SYMLINKS := $(addprefix $(TARGET_ROOT_OUT)/firmware/image/,$(notdir $(MBA_IMAGES)))
 $(MBA_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@echo "MBA firmware link: $@"
 	@mkdir -p $(dir $@)
 	@rm -rf $@
-	$(hide) ln -sf /vendor/firmware/$(notdir $@) $@
+	$(hide) ln -sf /firmware/radio/$(notdir $@) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(MBA_SYMLINKS)
 
-MISC_IMAGES := \
-    qdsp6m.qdb radiover.cfg version.cfg
-
-MISC_SYMLINKS := $(addprefix $(TARGET_ROOT_OUT)/firmware/image/,$(notdir $(MISC_IMAGES)))
-$(MISC_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
-	@echo "Misc firmware link: $@"
-	@mkdir -p $(dir $@)
-	@rm -rf $@
-	$(hide) ln -sf /vendor/firmware/$(notdir $@) $@
-
-ALL_DEFAULT_INSTALLED_MODULES += $(MISC_SYMLINKS)
-
 MODEM_IMAGES := \
-    modem.b00 modem.b01 modem.b02 modem.b04 modem.b05 modem.b06 \
-    modem.b07 modem.b08 modem.b09 modem.b10 modem.b11 modem.b12 \
-    modem.b13 modem.b16 modem.b17 modem.b18 modem.b19 modem.b20 \
-    modem.mdt
+    modem.b00 modem.b01 modem.b02 modem.b03 modem.b04 modem.b05 \
+    modem.b08 modem.b10 modem.b14 modem.b15 modem.b16 modem.b17 \
+    modem.b18 modem.b19 modem.b22 modem.b23 modem.b25 modem.mdt \
+    radiover.cfg udata.cfg
 
 MODEM_SYMLINKS := $(addprefix $(TARGET_ROOT_OUT)/firmware/image/,$(notdir $(MODEM_IMAGES)))
 $(MODEM_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@echo "Modem firmware link: $@"
 	@mkdir -p $(dir $@)
 	@rm -rf $@
-	$(hide) ln -sf /vendor/firmware/$(notdir $@) $@
+	$(hide) ln -sf /firmware/radio/$(notdir $@) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(MODEM_SYMLINKS)
 
@@ -110,9 +84,9 @@ $(WCNSS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 ALL_DEFAULT_INSTALLED_MODULES += $(WCNSS_SYMLINKS)
 
 # Create a link for the WCNSS config file, which ends up as a writable
-# # version in /data/misc/wifi
+# version in /data/misc/wifi
 $(shell mkdir -p $(TARGET_OUT)/etc/firmware/wlan/prima; \
     ln -sf /data/misc/wifi/WCNSS_qcom_cfg.ini \
-	    $(TARGET_OUT)/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini)
+        $(TARGET_OUT)/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini)
 
 endif

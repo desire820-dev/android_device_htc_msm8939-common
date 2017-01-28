@@ -242,6 +242,7 @@ PRODUCT_PACKAGES += \
     libOmxVidcCommon \
     libOmxSwVencMpeg4 \
     libstagefrighthw \
+    libstagefright_soft_flacdec
 
 # For userdebug builds
 ADDITIONAL_DEFAULT_PROPERTIES += \
