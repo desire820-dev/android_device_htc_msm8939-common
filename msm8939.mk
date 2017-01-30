@@ -220,29 +220,22 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/qcom/netmgr_config.xml:system/etc/data/netmgr_config.xml \
     $(LOCAL_PATH)/configs/qcom/qmi_config.xml:system/etc/data/qmi_config.xml
 
-# Test Omx
+# Media
 PRODUCT_PACKAGES += \
-    libOmxVdpp \
-    libOmxVidcCommon \
-    libmm-omxcore
-
-# OMX
-PRODUCT_PACKAGES += \
-    libc2dcolorconvert \
-    libdivxdrmdecrypt \
-    libOmxCore \
-    libOmxVdec \
-    libOmxVenc \
+    libextmedia_jni \
     libOmxAacEnc \
     libOmxAmrEnc \
+    libOmxCore \
     libOmxEvrcEnc \
-    libOmxVdecHevc \
     libOmxQcelp13Enc \
-    libOmxSwVencHevc \
-    libOmxVidcCommon \
-    libOmxSwVencMpeg4 \
-    libstagefrighthw \
-    libstagefright_soft_flacdec
+    libOmxVdec \
+    libOmxVenc \
+    libstagefrighthw
+
+ifneq ($(QCPATH),)
+PRODUCT_PACKAGES += \
+    libOmxVdecHevc
+endif
 
 # For userdebug builds
 ADDITIONAL_DEFAULT_PROPERTIES += \
