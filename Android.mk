@@ -30,18 +30,6 @@ include $(call all-makefiles-under,$(LOCAL_PATH))
 
 include $(CLEAR_VARS)
 
-KEYMASTER_IMAGES := \
-    keymaste.b00 keymaste.b01 keymaste.b02 keymaste.b03 keymaste.mdt
-
-KEYMASTER_SYMLINKS := $(addprefix $(TARGET_ROOT_OUT)/firmware/image/,$(notdir $(KEYMASTER_IMAGES)))
-$(KEYMASTER_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
-	@echo "Keymaster firmware link: $@"
-	@mkdir -p $(dir $@)
-	@rm -rf $@
-	$(hide) ln -sf /etc/firmware/$(notdir $@) $@
-
-ALL_DEFAULT_INSTALLED_MODULES += $(KEYMASTER_SYMLINKS)
-
 MBA_IMAGES := \
     mba.b00 mba.b01 mba.b02 mba.b03 mba.mbn mba.mdt mdata.cfg
 
@@ -82,6 +70,7 @@ $(WCNSS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	$(hide) ln -sf /firmware/wcnss/$(notdir $@) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(WCNSS_SYMLINKS)
+
 
 # Create a link for the WCNSS config file, which ends up as a writable
 # version in /data/misc/wifi

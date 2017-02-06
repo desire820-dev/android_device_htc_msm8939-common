@@ -176,6 +176,11 @@ on fs
 
     # QSEE secure application : keymaster
 #    exec /system/bin/sh /init.qcom.firmware_links.sh /system/vendor/firmware /vendor/firmware "keymaster.*"
+    symlink /system/vendor/firmware/keymaster.b00 /vendor/firmware/keymaster.b00
+    symlink /system/vendor/firmware/keymaster.b01 /vendor/firmware/keymaster.b01
+    symlink /system/vendor/firmware/keymaster.b02 /vendor/firmware/keymaster.b02
+    symlink /system/vendor/firmware/keymaster.b03 /vendor/firmware/keymaster.b03
+    symlink /system/vendor/firmware/keymaster.mdt /vendor/firmware/keymaster.mdt
 
     # Link vendor/lib by QCT original design
     symlink /system/vendor/lib64 /vendor/lib64
